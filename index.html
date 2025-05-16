@@ -1,0 +1,167 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Lab Exam Questions</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Lab Exam</h1>
+
+    <h2>Section A: Short Answer</h2>
+    <ol>
+      <li>
+        Explain why the Travelling Salesman Problem (TSP) is considered NP-Hard.
+        <textarea name="shortAnswer1" rows="4" placeholder="Type your answer here..."></textarea>
+      </li>
+      <li>
+        Define the mutation operation in Differential Evolution and how it influences convergence.
+        <textarea name="shortAnswer2" rows="4" placeholder="Type your answer here..."></textarea>
+      </li>
+      <li>
+        What is the role of the inertia weight in PSO and how does it affect exploration vs. exploitation?
+        <textarea name="shortAnswer3" rows="4" placeholder="Type your answer here..."></textarea>
+      </li>
+      <li>
+        Write a Python function to calculate the fitness of a 2D point using the Sphere function.
+        <textarea name="shortAnswer4" rows="4" placeholder="Type your answer here..."></textarea>
+      </li>
+      <li>
+        Implement a basic PSO velocity and position update step for one particle.
+        <textarea name="shortAnswer5" rows="4" placeholder="Type your answer here..."></textarea>
+      </li>
+    </ol>
+
+    <h2>Section B: Code-Based Questions</h2>
+    <ol start="6">
+      <li>
+        Write code to perform single-point crossover between two parent vectors in GA.
+        <textarea name="codeAnswer6" rows="6" placeholder="Type your code here..."></textarea>
+      </li>
+      <li>
+        Implement the mutation step of <code>DE/rand/1/bin</code> strategy in Python.
+        <textarea name="codeAnswer7" rows="6" placeholder="Type your code here..."></textarea>
+      </li>
+      <li>
+        Create a function to simulate tournament selection from a population using fitness values.
+        <textarea name="codeAnswer8" rows="6" placeholder="Type your code here..."></textarea>
+      </li>
+      <li>
+        Write a Python function to calculate the gradient of the Sphere function.
+        <textarea name="codeAnswer9" rows="6" placeholder="Type your code here..."></textarea>
+      </li>
+      <li>
+        Write Python code for updating a solution using the gradient descent rule.
+        <textarea name="codeAnswer10" rows="6" placeholder="Type your code here..."></textarea>
+      </li>
+    </ol>
+
+    <h2>Section C: Multiple Choice</h2>
+    <form id="examForm">
+      <ol start="15">
+        <li class="mcq">
+          Which of the following is <em>not</em> a key component of an optimization problem?
+          <ul>
+            <li><label><input type="radio" name="q15" value="A" /> A. Objective function</label></li>
+            <li><label><input type="radio" name="q15" value="B" /> B. Variables</label></li>
+            <li><label><input type="radio" name="q15" value="C" /> C. Learning rate</label></li>
+            <li><label><input type="radio" name="q15" value="D" /> D. Constraints</label></li>
+          </ul>
+          <div class="answer" data-answer="C"></div>
+        </li>
+
+        <li class="mcq">
+          The gradient of the Sphere function $f(x) = x_1^2 + x_2^2$ is:
+          <ul>
+            <li><label><input type="radio" name="q16" value="A" /> A. (x_1, x_2)</label></li>
+            <li><label><input type="radio" name="q16" value="B" /> B. (2x_1, 2x_2)</label></li>
+            <li><label><input type="radio" name="q16" value="C" /> C. (x_1^2, x_2^2)</label></li>
+            <li><label><input type="radio" name="q16" value="D" /> D. (1, 1)</label></li>
+          </ul>
+          <div class="answer" data-answer="B"></div>
+        </li>
+
+        <li class="mcq">
+          In PSO, if the velocity update is too high, the likely result is:
+          <ul>
+            <li><label><input type="radio" name="q17" value="A" /> A. Quick convergence</label></li>
+            <li><label><input type="radio" name="q17" value="B" /> B. Local optimum trapping</label></li>
+            <li><label><input type="radio" name="q17" value="C" /> C. Divergence</label></li>
+            <li><label><input type="radio" name="q17" value="D" /> D. Early stagnation</label></li>
+          </ul>
+          <div class="answer" data-answer="C"></div>
+        </li>
+
+        <li class="mcq">
+          The difference vector in Differential Evolution is calculated as:
+          <ul>
+            <li><label><input type="radio" name="q18" value="A" /> A. x_b + x_c</label></li>
+            <li><label><input type="radio" name="q18" value="B" /> B. x_b - x_c</label></li>
+            <li><label><input type="radio" name="q18" value="C" /> C. x_a · F</label></li>
+            <li><label><input type="radio" name="q18" value="D" /> D. x_b + F(x_c - x_a)</label></li>
+          </ul>
+          <div class="answer" data-answer="B"></div>
+        </li>
+
+        <li class="mcq">
+          Which type of crossover ensures that each gene has a 50% chance to be inherited from either parent?
+          <ul>
+            <li><label><input type="radio" name="q19" value="A" /> A. Arithmetic crossover</label></li>
+            <li><label><input type="radio" name="q19" value="B" /> B. Uniform crossover</label></li>
+            <li><label><input type="radio" name="q19" value="C" /> C. Single-point crossover</label></li>
+            <li><label><input type="radio" name="q19" value="D" /> D. Two-point crossover</label></li>
+          </ul>
+          <div class="answer" data-answer="B"></div>
+        </li>
+
+        <li class="mcq">
+          What is the Big-O time complexity of brute-force TSP?
+          <ul>
+            <li><label><input type="radio" name="q20" value="A" /> A. O(n)</label></li>
+            <li><label><input type="radio" name="q20" value="B" /> B. O(2^n)</label></li>
+            <li><label><input type="radio" name="q20" value="C" /> C. O(n!)</label></li>
+            <li><label><input type="radio" name="q20" value="D" /> D. O(n log n)</label></li>
+          </ul>
+          <div class="answer" data-answer="C"></div>
+        </li>
+
+        <li class="mcq">
+          The best description of NP-Complete problems is:
+          <ul>
+            <li><label><input type="radio" name="q21" value="A" /> A. Solvable in constant time</label></li>
+            <li><label><input type="radio" name="q21" value="B" /> B. Verifiable but not solvable in polynomial time</label></li>
+            <li><label><input type="radio" name="q21" value="C" /> C. Both NP and NP-Hard</label></li>
+            <li><label><input type="radio" name="q21" value="D" /> D. Only solvable with quantum computers</label></li>
+          </ul>
+          <div class="answer" data-answer="C"></div>
+        </li>
+
+        <li class="mcq">
+          In GA, the main purpose of mutation is to:
+          <ul>
+            <li><label><input type="radio" name="q22" value="A" /> A. Increase crossover accuracy</label></li>
+            <li><label><input type="radio" name="q22" value="B" /> B. Introduce diversity into the population</label></li>
+            <li><label><input type="radio" name="q22" value="C" /> C. Select parents</label></li>
+            <li><label><input type="radio" name="q22" value="D" /> D. Increase convergence speed</label></li>
+          </ul>
+          <div class="answer" data-answer="B"></div>
+        </li>
+
+        <li class="mcq">
+          Which selection strategy uses multiple fixed pointers across the probability space?
+          <ul>
+            <li><label><input type="radio" name="q23" value="A" /> A. Elitism</label></li>
+            <li><label><input type="radio" name="q23" value="B" /> B. Roulette wheel selection</label></li>
+            <li><label><input type="radio" name="q23" value="C" /> C. Tournament selection</label></li>
+            <li><label><input type="radio" name="q23" value="D" /> D. Stochastic universal sampling</label></li>
+          </ul>
+          <div class="answer" data-answer="D"></div>
+        </li>
+      </ol>
+    </form>
+  </div>
+</body>
+</html>
