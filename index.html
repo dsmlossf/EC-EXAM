@@ -323,6 +323,15 @@
       a.click();
       URL.revokeObjectURL(url);
     }
+     // Disable MCQ options once one option is selected
+    document.querySelectorAll('input[type="radio"]').forEach(radio => {
+      radio.addEventListener('change', () => {
+        const name = radio.name;
+        document.querySelectorAll(`input[name="${name}"]`).forEach(input => {
+          input.disabled = true;
+        });
+      });
+    });
   </script>
 </body>
 </html>
