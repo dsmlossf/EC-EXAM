@@ -47,9 +47,7 @@
     <h2>Section C: Multiple Choice</h2>
     <form id="examForm">
       <ol start="15">
-        <!-- Sample MCQ Entry Format -->
-        <li class="mcq">
-          Which of the following is <em>not</em> a key component of an optimization problem?
+        <li class="mcq">Which of the following is <em>not</em> a key component of an optimization problem?
           <ul>
             <li><label><input type="radio" name="q15" value="A" /> A. Objective function</label></li>
             <li><label><input type="radio" name="q15" value="B" /> B. Variables</label></li>
@@ -57,7 +55,31 @@
             <li><label><input type="radio" name="q15" value="D" /> D. Constraints</label></li>
           </ul>
         </li>
-        <!-- Add all questions up to q30 similarly here... -->
+        <li class="mcq">The gradient of the Sphere function f(x) = x₁² + x₂² is:
+          <ul>
+            <li><label><input type="radio" name="q16" value="A" /> A. (x₁, x₂)</label></li>
+            <li><label><input type="radio" name="q16" value="B" /> B. (2x₁, 2x₂)</label></li>
+            <li><label><input type="radio" name="q16" value="C" /> C. (x₁², x₂²)</label></li>
+            <li><label><input type="radio" name="q16" value="D" /> D. (1, 1)</label></li>
+          </ul>
+        </li>
+        <li class="mcq">In PSO, if the velocity update is too high, the likely result is:
+          <ul>
+            <li><label><input type="radio" name="q17" value="A" /> A. Quick convergence</label></li>
+            <li><label><input type="radio" name="q17" value="B" /> B. Local optimum trapping</label></li>
+            <li><label><input type="radio" name="q17" value="C" /> C. Divergence</label></li>
+            <li><label><input type="radio" name="q17" value="D" /> D. Early stagnation</label></li>
+          </ul>
+        </li>
+        <li class="mcq">The difference vector in Differential Evolution is calculated as:
+          <ul>
+            <li><label><input type="radio" name="q18" value="A" /> A. x_b + x_c</label></li>
+            <li><label><input type="radio" name="q18" value="B" /> B. x_b - x_c</label></li>
+            <li><label><input type="radio" name="q18" value="C" /> C. x_a · F</label></li>
+            <li><label><input type="radio" name="q18" value="D" /> D. x_b + F(x_c - x_a)</label></li>
+          </ul>
+        </li>
+        <!-- Additional MCQs should follow the same pattern -->
       </ol>
       <button type="button" onclick="checkAnswers()">Submit MCQs</button>
       <div class="score" id="score"></div>
