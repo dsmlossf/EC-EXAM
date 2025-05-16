@@ -56,7 +56,43 @@
 
     <h2>Section C: Multiple Choice</h2>
     <form id="examForm">
-      <ol start="15">
+      <ol start="11">
+        <li class="mcq">
+          What is the primary goal of optimization in evolutionary computing?
+          <ul>
+            <li><label><input type="radio" name="q11" value="A" /> a) Maximizing randomness</label></li>
+            <li><label><input type="radio" name="q11" value="B" /> b) Minimizing or maximizing an objective function</label></li>
+            <li><label><input type="radio" name="q11" value="C" /> c) Increasing algorithm complexity</label></li>
+            <li><label><input type="radio" name="q11" value="D" /> d) Removing constraints</label></li>
+          </ul>
+        </li>
+        <li class="mcq">
+          Which of the following is an example of a combinatorial optimization problem?
+          <ul>
+            <li><label><input type="radio" name="q12" value="A" /> a) Gradient descent</label></li>
+            <li><label><input type="radio" name="q12" value="B" /> b) Linear regression</label></li>
+            <li><label><input type="radio" name="q12" value="C" /> c) Travelling Salesman Problem (TSP)</label></li>
+            <li><label><input type="radio" name="q12" value="D" /> d) Matrix inversion</label></li>
+          </ul>
+        </li>
+        <li class="mcq">
+          What is the key difference between constrained and unconstrained optimization?
+          <ul>
+            <li><label><input type="radio" name="q13" value="A" /> a) Unconstrained optimization has no variables</label></li>
+            <li><label><input type="radio" name="q13" value="B" /> b) Constrained optimization has restrictions on variable values</label></li>
+            <li><label><input type="radio" name="q13" value="C" /> c) Constrained optimization cannot be solved using evolutionary algorithms</label></li>
+            <li><label><input type="radio" name="q13" value="D" /> d) Unconstrained optimization does not require an objective function</label></li>
+          </ul>
+        </li>
+        <li class="mcq">
+          What is the main inspiration behind Evolutionary Algorithms (EAs)?
+          <ul>
+            <li><label><input type="radio" name="q14" value="A" /> a) Quantum mechanics</label></li>
+            <li><label><input type="radio" name="q14" value="B" /> b) Neural networks</label></li>
+            <li><label><input type="radio" name="q14" value="C" /> c) Biological evolution and natural selection</label></li>
+            <li><label><input type="radio" name="q14" value="D" /> d) Linear algebra</label></li>
+          </ul>
+        </li>
         <li class="mcq">
           Which of the following is <em>not</em> a key component of an optimization problem?
           <ul>
@@ -216,7 +252,7 @@
             <li><label><input type="radio" name="q30" value="D" /> D. Crossover is repeated</label></li>
           </ul>
         </li>
-      </ol>
+       </ol>
       <button type="button" onclick="checkAnswers()">Submit MCQs</button>
       <div class="score" id="score"></div>
     </form>
@@ -226,28 +262,68 @@
 
   <script>
     const correctAnswers = {
+      q11: 'B',
+      q12: 'C',
+      q13: 'B',
+      q14: 'C',
       q15: 'C', q16: 'B', q17: 'C', q18: 'B', q19: 'B',
       q20: 'C', q21: 'C', q22: 'B', q23: 'C', q24: 'A',
       q25: 'B', q26: 'B', q27: 'C', q28: 'C', q29: 'A', q30: 'C'
     };
 
     function checkAnswers() {
-      let total = 0, correct = 0;
       for (let q in correctAnswers) {
-        total++;
-        const selected = document.querySelector(`input[name="${q}"]:checked`);
-        if (selected) {
-          const li = selected.closest("li");
-          if (selected.value === correctAnswers[q]) {
-            correct++;
-            li.classList.add("correct");
-            li.classList.remove("incorrect");
-          } else {
-            li.classList.add("incorrect");
-            li.classList.remove("correct");
-          }
+        if (!document.querySelector(`input[name="${q}"]:checked`)) {
+          alert(`Please answer all multiple choice questions before submitting. Missing: question ${q.substring(1)}`);
+          return;
         }
       }
+
+      let total = Object.keys(correctAnswers).length;
+      let correct = 0;
+      for (let q in correctAnswers) {
+        const selected = document.querySelector(`input[name="${q}"]:checked`);
+        const li = selected.closest("li");
+        if (selected.value === correctAnswers[q]) {
+          correct++;
+          li.classList.add("correct");
+          li.classList.remove("incorrect");
+        } else {
+          li.classList.add("incorrect");
+          li.classList.remove("correct");
+        }
+      }
+
       const name = document.getElementById("studentName").value || "Anonymous";
       const scoreText = `Name: ${name}\nScore: ${correct}/${total}`;
-      document.getElementById("score").text
+      document.getElementById("score").textContent = scoreText.replace(/\n/g, " ") + " — Score submitted successfully!";
+
+      const blob = new Blob([scoreText], { type: 'text/plain' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = `${name.replace(/\s+/g, '_')}_score.txt`;
+      a.click();
+      URL.revokeObjectURL(url);
+    }
+
+    function saveAnswers() {
+      const answers = {};
+      answers["studentName"] = document.getElementById("studentName").value;
+      document.querySelectorAll("textarea").forEach(el => {
+        answers[el.name] = el.value;
+      });
+      document.querySelectorAll("input[type=radio]:checked").forEach(el => {
+        answers[el.name] = el.value;
+      });
+      const blob = new Blob([JSON.stringify(answers, null, 2)], {type: 'application/json'});
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = "exam_answers.json";
+      a.click();
+      URL.revokeObjectURL(url);
+    }
+  </script>
+</body>
+</html>
