@@ -293,7 +293,6 @@
           li.classList.remove("correct");
         }
       }
-
       const name = document.getElementById("studentName").value || "Anonymous";
       const scoreText = `Name: ${name}\nScore: ${correct} / ${total}`;
       document.getElementById("score").textContent = scoreText.replace(/\n/g, " ") + " — Score submitted successfully!";
