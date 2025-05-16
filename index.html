@@ -10,11 +10,21 @@
     .incorrect { color: red; font-weight: bold; }
     .score { margin-top: 20px; font-weight: bold; font-size: 18px; }
     button { margin-top: 20px; padding: 10px 20px; font-size: 16px; }
+    label.name-label { display: block; margin-bottom: 10px; font-weight: bold; }
+    input[name="studentName"] { width: 100%; padding: 8px; margin-bottom: 20px; box-sizing: border-box; font-size: 16px; }
+    textarea {
+      display: block; width: 100%; min-height: 120px; margin-top: 10px; margin-bottom: 20px;
+      font-family: monospace; font-size: 14px; padding: 10px; box-sizing: border-box;
+      border: 1px solid #ccc; border-radius: 4px; resize: vertical;
+    }
   </style>
 </head>
 <body>
   <div class="container">
     <h1>Lab Exam</h1>
+
+    <label class="name-label" for="studentName">Your Name:</label>
+    <input type="text" id="studentName" name="studentName" placeholder="Enter your name here" />
 
     <h2>Section A: Short Answer</h2>
     <ol>
@@ -47,7 +57,8 @@
     <h2>Section C: Multiple Choice</h2>
     <form id="examForm">
       <ol start="15">
-        <li class="mcq">Which of the following is <em>not</em> a key component of an optimization problem?
+        <li class="mcq">
+          Which of the following is <em>not</em> a key component of an optimization problem?
           <ul>
             <li><label><input type="radio" name="q15" value="A" /> A. Objective function</label></li>
             <li><label><input type="radio" name="q15" value="B" /> B. Variables</label></li>
@@ -55,15 +66,19 @@
             <li><label><input type="radio" name="q15" value="D" /> D. Constraints</label></li>
           </ul>
         </li>
-        <li class="mcq">The gradient of the Sphere function f(x) = x₁² + x₂² is:
+
+        <li class="mcq">
+          The gradient of the Sphere function $f(x) = x_1^2 + x_2^2$ is:
           <ul>
-            <li><label><input type="radio" name="q16" value="A" /> A. (x₁, x₂)</label></li>
-            <li><label><input type="radio" name="q16" value="B" /> B. (2x₁, 2x₂)</label></li>
-            <li><label><input type="radio" name="q16" value="C" /> C. (x₁², x₂²)</label></li>
-            <li><label><input type="radio" name="q16" value="D" /> D. (1, 1)</label></li>
+            <li><label><input type="radio" name="q16" value="A" /> A. $(x_1, x_2)$</label></li>
+            <li><label><input type="radio" name="q16" value="B" /> B. $(2x_1, 2x_2)$</label></li>
+            <li><label><input type="radio" name="q16" value="C" /> C. $(x_1^2, x_2^2)$</label></li>
+            <li><label><input type="radio" name="q16" value="D" /> D. $(1, 1)$</label></li>
           </ul>
         </li>
-        <li class="mcq">In PSO, if the velocity update is too high, the likely result is:
+
+        <li class="mcq">
+          In PSO, if the velocity update is too high, the likely result is:
           <ul>
             <li><label><input type="radio" name="q17" value="A" /> A. Quick convergence</label></li>
             <li><label><input type="radio" name="q17" value="B" /> B. Local optimum trapping</label></li>
@@ -71,15 +86,136 @@
             <li><label><input type="radio" name="q17" value="D" /> D. Early stagnation</label></li>
           </ul>
         </li>
-        <li class="mcq">The difference vector in Differential Evolution is calculated as:
+
+        <li class="mcq">
+          The difference vector in Differential Evolution is calculated as:
           <ul>
-            <li><label><input type="radio" name="q18" value="A" /> A. x_b + x_c</label></li>
-            <li><label><input type="radio" name="q18" value="B" /> B. x_b - x_c</label></li>
-            <li><label><input type="radio" name="q18" value="C" /> C. x_a · F</label></li>
-            <li><label><input type="radio" name="q18" value="D" /> D. x_b + F(x_c - x_a)</label></li>
+            <li><label><input type="radio" name="q18" value="A" /> A. $x_b + x_c$</label></li>
+            <li><label><input type="radio" name="q18" value="B" /> B. $x_b - x_c$</label></li>
+            <li><label><input type="radio" name="q18" value="C" /> C. $x_a \cdot F$</label></li>
+            <li><label><input type="radio" name="q18" value="D" /> D. $x_b + F(x_c - x_a)$</label></li>
           </ul>
         </li>
-        <!-- Additional MCQs should follow the same pattern -->
+
+        <li class="mcq">
+          Which type of crossover ensures that each gene has a 50% chance to be inherited from either parent?
+          <ul>
+            <li><label><input type="radio" name="q19" value="A" /> A. Arithmetic crossover</label></li>
+            <li><label><input type="radio" name="q19" value="B" /> B. Uniform crossover</label></li>
+            <li><label><input type="radio" name="q19" value="C" /> C. Single-point crossover</label></li>
+            <li><label><input type="radio" name="q19" value="D" /> D. Two-point crossover</label></li>
+          </ul>
+        </li>
+
+        <li class="mcq">
+          What is the Big-O time complexity of brute-force TSP?
+          <ul>
+            <li><label><input type="radio" name="q20" value="A" /> A. $O(n)$</label></li>
+            <li><label><input type="radio" name="q20" value="B" /> B. $O(2^n)$</label></li>
+            <li><label><input type="radio" name="q20" value="C" /> C. $O(n!)$</label></li>
+            <li><label><input type="radio" name="q20" value="D" /> D. $O(n \log n)$</label></li>
+          </ul>
+        </li>
+
+        <li class="mcq">
+          The best description of NP-Complete problems is:
+          <ul>
+            <li><label><input type="radio" name="q21" value="A" /> A. Solvable in constant time</label></li>
+            <li><label><input type="radio" name="q21" value="B" /> B. Verifiable but not solvable in polynomial time</label></li>
+            <li><label><input type="radio" name="q21" value="C" /> C. Both NP and NP-Hard</label></li>
+            <li><label><input type="radio" name="q21" value="D" /> D. Only solvable with quantum computers</label></li>
+          </ul>
+        </li>
+
+        <li class="mcq">
+          In GA, the main purpose of mutation is to:
+          <ul>
+            <li><label><input type="radio" name="q22" value="A" /> A. Increase crossover accuracy</label></li>
+            <li><label><input type="radio" name="q22" value="B" /> B. Introduce diversity into the population</label></li>
+            <li><label><input type="radio" name="q22" value="C" /> C. Select parents</label></li>
+            <li><label><input type="radio" name="q22" value="D" /> D. Increase convergence speed</label></li>
+          </ul>
+        </li>
+
+        <li class="mcq">
+          Which selection strategy uses multiple fixed pointers across the probability space?
+          <ul>
+            <li><label><input type="radio" name="q23" value="A" /> A. Elitism</label></li>
+            <li><label><input type="radio" name="q23" value="B" /> B. Tournament selection</label></li>
+            <li><label><input type="radio" name="q23" value="C" /> C. Stochastic Universal Sampling</label></li>
+            <li><label><input type="radio" name="q23" value="D" /> D. Rank-based selection</label></li>
+          </ul>
+        </li>
+
+        <li class="mcq">
+          In DE, the trial vector is formed by combining:
+          <ul>
+            <li><label><input type="radio" name="q24" value="A" /> A. Mutant and parent vectors</label></li>
+            <li><label><input type="radio" name="q24" value="B" /> B. Two parents</label></li>
+            <li><label><input type="radio" name="q24" value="C" /> C. pbest and gbest</label></li>
+            <li><label><input type="radio" name="q24" value="D" /> D. Fitness values</label></li>
+          </ul>
+        </li>
+
+        <li class="mcq">
+          The inertia weight in PSO helps:
+          <ul>
+            <li><label><input type="radio" name="q25" value="A" /> A. Control randomness</label></li>
+            <li><label><input type="radio" name="q25" value="B" /> B. Encourage exploration</label></li>
+            <li><label><input type="radio" name="q25" value="C" /> C. Avoid mutation</label></li>
+            <li><label><input type="radio" name="q25" value="D" /> D. Boost selection</label></li>
+          </ul>
+        </li>
+
+        <li class="mcq">
+          Which of these mutation strategies uses the global best vector in DE?
+          <ul>
+            <li><label><input type="radio" name="q26" value="A" /> A. DE/rand/1</label></li>
+            <li><label><input type="radio" name="q26" value="B" /> B. DE/best/1</label></li>
+            <li><label><input type="radio" name="q26" value="C" /> C. DE/current-to-rand</label></li>
+            <li><label><input type="radio" name="q26" value="D" /> D. DE/rand/2</label></li>
+          </ul>
+        </li>
+
+        <li class="mcq">
+          What is the major drawback of using brute-force search for optimization?
+          <ul>
+            <li><label><input type="radio" name="q27" value="A" /> A. High accuracy</label></li>
+            <li><label><input type="radio" name="q27" value="B" /> B. Simple implementation</label></li>
+            <li><label><input type="radio" name="q27" value="C" /> C. Exponential time complexity</label></li>
+            <li><label><input type="radio" name="q27" value="D" /> D. Small search space</label></li>
+          </ul>
+        </li>
+
+        <li class="mcq">
+          Which crossover technique averages two parent vectors to generate offspring?
+          <ul>
+            <li><label><input type="radio" name="q28" value="A" /> A. Uniform</label></li>
+            <li><label><input type="radio" name="q28" value="B" /> B. Two-point</label></li>
+            <li><label><input type="radio" name="q28" value="C" /> C. Arithmetic</label></li>
+            <li><label><input type="radio" name="q28" value="D" /> D. Exponential</label></li>
+          </ul>
+        </li>
+
+        <li class="mcq">
+          In GA, which method ensures that the best solutions are carried into the next generation?
+          <ul>
+            <li><label><input type="radio" name="q29" value="A" /> A. Elitism</label></li>
+            <li><label><input type="radio" name="q29" value="B" /> B. Roulette wheel</label></li>
+            <li><label><input type="radio" name="q29" value="C" /> C. Rank-based</label></li>
+            <li><label><input type="radio" name="q29" value="D" /> D. Truncation</label></li>
+          </ul>
+        </li>
+
+        <li class="mcq">
+          In DE, what happens if the trial vector has worse fitness than the target vector?
+          <ul>
+            <li><label><input type="radio" name="q30" value="A" /> A. The trial vector replaces the target</label></li>
+            <li><label><input type="radio" name="q30" value="B" /> B. Mutation restarts</label></li>
+            <li><label><input type="radio" name="q30" value="C" /> C. The target vector remains unchanged</label></li>
+            <li><label><input type="radio" name="q30" value="D" /> D. Crossover is repeated</label></li>
+          </ul>
+        </li>
       </ol>
       <button type="button" onclick="checkAnswers()">Submit MCQs</button>
       <div class="score" id="score"></div>
@@ -91,7 +227,7 @@
   <script>
     const correctAnswers = {
       q15: 'C', q16: 'B', q17: 'C', q18: 'B', q19: 'B',
-      q20: 'C', q21: 'C', q22: 'B', q23: 'D', q24: 'A',
+      q20: 'C', q21: 'C', q22: 'B', q23: 'C', q24: 'A',
       q25: 'B', q26: 'B', q27: 'C', q28: 'C', q29: 'A', q30: 'C'
     };
 
@@ -112,25 +248,6 @@
           }
         }
       }
-      document.getElementById("score").textContent = `Score: ${correct}/${total}`;
-    }
-
-    function saveAnswers() {
-      const answers = {};
-      document.querySelectorAll("textarea").forEach(el => {
-        answers[el.name] = el.value;
-      });
-      document.querySelectorAll("input[type=radio]:checked").forEach(el => {
-        answers[el.name] = el.value;
-      });
-      const blob = new Blob([JSON.stringify(answers, null, 2)], {type: 'application/json'});
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement("a");
-      a.href = url;
-      a.download = "exam_answers.json";
-      a.click();
-      URL.revokeObjectURL(url);
-    }
-  </script>
-</body>
-</html>
+      const name = document.getElementById("studentName").value || "Anonymous";
+      const scoreText = `Name: ${name}\nScore: ${correct}/${total}`;
+      document.getElementById("score").text
